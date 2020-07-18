@@ -36,13 +36,61 @@
         border-radius: 10px;
         border: 1px solid #ddd;
       }
+
+      .name-form,
+      .chat-form {
+        display: flex;
+        justify-content: center;
+      }
+
+      input {
+        padding: 16px;
+        font-size: 1.3em;
+        margin-right: 10px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+      }
+
+      button {
+        font-size: 1.3em;
+        padding: 16px;
+        background: #006aee;
+        color: white;
+        border: 0;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .chat-list {
+        padding: 0;
+      }
+
+      .chat-list li {
+        margin: 16px 0;
+        list-style-type: none;
+      }
+
+      .chat-list .name {
+        color: #006aee;
+        font-size: 1.4em;
+        font-weight: bold;
+      }
+
+      .chat-list .msg {
+        font-size: 1.2em;
+        margin-top: 4px;
+      }
+
+      .hidden {
+        display: none;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <h1>Deno Chat</h1>
 
-      <form action="" class="name-form">
+      <form class="name-form">
         <input
           type="text"
           name="nickname"
@@ -52,7 +100,7 @@
         <button>Enter Chat</button>
       </form>
 
-      <div class="chatroom">
+      <div class="chatroom hidden">
         <ul class="chat-list">
           <li>
             <div class="name">Yoshi</div>
@@ -60,7 +108,7 @@
           </li>
         </ul>
 
-        <form action="" class="chat-form">
+        <form class="chat-form">
           <input
             type="text"
             name="msg"
