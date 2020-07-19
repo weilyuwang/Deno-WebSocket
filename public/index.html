@@ -102,10 +102,7 @@
 
       <div class="chatroom hidden">
         <ul class="chat-list">
-          <li>
-            <div class="name">Yoshi</div>
-            <div class="msg">Hey all!</div>
-          </li>
+          <!-- This part will be updated by javscript -->
         </ul>
 
         <form class="chat-form">
@@ -147,6 +144,22 @@
         let msg = chatForm.msg.value;
         ws.send(JSON.stringify({ name, msg })); // send JSON string to server
       });
+
+      // output event to dom
+      const outputMessage = ({ data }) => {
+        const { name, msg } = JSON.parse(data);
+
+        let template = `
+          <li>
+            <div class="name">${name}</div>
+            <div class="msg">${msg}</div>
+          </li>
+        `;
+        chatList.innerHTML += template;
+      };
+
+      // setup listener
+      ws.addEventListener("message", outputMessage);
     </script>
   </body>
 </html>
